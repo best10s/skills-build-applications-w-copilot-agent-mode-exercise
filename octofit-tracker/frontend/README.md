@@ -1,32 +1,27 @@
-# React + TypeScript + Vite
+# OctoFit Tracker frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+The React 19 presentation layer uses React Router for the Users, Activities,
+Teams, Leaderboard, and Workouts pages. It reads collection data from the
+Node.js API on port `8000`.
 
-Currently, two official plugins are available:
+## API URL configuration
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+In GitHub Codespaces, create `octofit-tracker/frontend/.env.local` and set
+`VITE_CODESPACE_NAME` to the Codespace name:
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```dotenv
+VITE_CODESPACE_NAME=your-codespace-name
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Vite uses this value to call
+`https://<VITE_CODESPACE_NAME>-8000.app.github.dev/api/<resource>/`. Restart the
+Vite development server after changing `.env.local`. If the variable is omitted
+in Codespaces, the frontend derives the API URL from its current
+`<codespace>-5173.app.github.dev` hostname. Outside Codespaces, it uses
+`http://localhost:8000`.
+
+Run the frontend from the repository root with:
+
+```bash
+npm run dev --prefix octofit-tracker/frontend
+```
