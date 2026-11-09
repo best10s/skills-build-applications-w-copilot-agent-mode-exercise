@@ -46,7 +46,8 @@ function extractRecords(payload: unknown): unknown[] | undefined {
 }
 
 export async function fetchCollection(resource: string): Promise<Record<string, unknown>[]> {
-  const response = await fetch(getApiUrl(resource))
+  const url = /^https?:\/\//i.test(resource) ? resource : getApiUrl(resource)
+  const response = await fetch(url)
   if (!response.ok) {
     throw new Error(`Request failed (${response.status} ${response.statusText})`)
   }

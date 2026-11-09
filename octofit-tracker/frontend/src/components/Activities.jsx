@@ -1,10 +1,15 @@
+import { getApiUrl } from '../api'
 import ResourcePage from './ResourcePage'
+
+const endpoint = import.meta.env.VITE_CODESPACE_NAME?.trim()
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME.trim()}-8000.app.github.dev/api/activities/`
+  : getApiUrl('activities')
 
 function Activities() {
   return (
     <ResourcePage
       title="Activities"
-      endpoint="activities"
+      endpoint={endpoint}
       columns={[
         { key: 'type', label: 'Activity' },
         { key: 'user', label: 'User' },
