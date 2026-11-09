@@ -5,9 +5,9 @@ import apiRouter from './routes/api.js';
 
 const app = express();
 const port = 8000;
-const codespaceName = process.env.CODESPACE_NAME;
+const codespaceName = process.env.CODESPACE_NAME; 
 const baseUrl = codespaceName
-  ? `https://${codespaceName}-8000.app.github.dev`
+  ? `https://${codespaceName}-8000.app.github.dev` 
   : 'http://localhost:8000';
 const frontendOrigin = codespaceName
   ? `https://${codespaceName}-5173.app.github.dev`
