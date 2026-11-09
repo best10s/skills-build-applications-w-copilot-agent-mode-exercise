@@ -1,0 +1,28 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-brand {
+  color: #173b32;
+}
+
+.navbar-nav .nav-link {
+  color: #56645e;
+}
+
+.navbar-nav .nav-link.active {
+  color: #157347;
+}
+
+.card {
+  border-radius: 1rem;
+}
+
+.table thead th {
+  color: #56645e;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
